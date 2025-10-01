@@ -22,6 +22,7 @@ threshold = 0.8
 data = data.loc[:, data.isnull().mean() < threshold]
 
 # Save the cleaned data
+
 data.to_csv('cleaned_data.csv', index=False)
 print("Cleaned data saved to cleaned_data.csv")
 id,name,age,score
