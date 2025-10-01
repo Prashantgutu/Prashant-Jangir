@@ -1,0 +1,26 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load the cleaned data
+data = pd.read_csv('data.csv')
+
+# Basic statistics
+print("Statistics:")
+print(data.describe())
+
+# Visualization: Age distribution
+plt.hist(data['age'].dropna(), bins=8, color='skyblue', edgecolor='black')
+plt.title('Age Distribution')
+plt.xlabel('Age')
+plt.ylabel('Frequency')
+plt.savefig('analytics_output.png')
+plt.show()
+
+# Example SQL analysis using pandasql (optional)
+try:
+    import pandasql as psql
+    q = "SELECT name, AVG(score) as avg_score FROM data GROUP BY name"
+    result = psql.sqldf(q, locals())
+    print(result)
+except ImportError:
+    print("pandasql not installed. Run 'pip install pandasql' for SQL queries in Python.")
