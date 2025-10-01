@@ -23,7 +23,29 @@
 - Watching Sci-fi Movies
 
 ## 📂 Projects
-*Coming soon...*
+import pandas as pd
+
+# Load the raw data
+data = pd.read_csv('data.csv')
+
+# Display basic info
+print("Original Data:")
+print(data.info())
+print(data.head())
+
+# Remove duplicates
+data = data.drop_duplicates()
+
+# Fill missing values (forward fill as example)
+data = data.fillna(method='ffill')
+
+# Drop columns with too many missing values (threshold: 80%)
+threshold = 0.8
+data = data.loc[:, data.isnull().mean() < threshold]
+
+# Save the cleaned data
+data.to_csv('cleaned_data.csv', index=False)
+print("Cleaned data saved to cleaned_data.csv")
 
 ## 🌐 Social Links
 *To be added...*
