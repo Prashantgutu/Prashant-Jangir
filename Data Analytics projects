@@ -24,3 +24,11 @@ try:
     print(result)
 except ImportError:
     print("pandasql not installed. Run 'pip install pandasql' for SQL queries in Python.")
+
+id,name,age,score
+1,John,25,88
+2,Jane,30,92
+3,Bob,,85
+4,Alice,28,92
+2,Jane,30,92
+5,Tom,22,
